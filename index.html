@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OutBackData – Fresh U.S. Federal Prime Contract Leads 2025</title>
+    <meta name="description" content="1,500+ fresh federal prime awards from December 2025 • >$100k • Hot sectors • Lead Score • Subcontract Potential • Instant CSV + SQLite download from $249">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fafafa;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --accent: #475569;
+            --primary: #1e40af;
+            --primary-light: #dbeafe;
+            --green: #10b981;
+            --radius: 1rem;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 40px -12px rgba(0,0,0,0.15);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        header.hide { transform: translateY(-100%); box-shadow: none; }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.9rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+        .logo img { 
+            height: 120px;
+            width: auto; 
+            border-radius: 10px; 
+            transition: height 0.3s ease;
+        }
+        nav { display: flex; gap: 2rem; }
+        nav a { color: var(--muted); text-decoration: none; font-weight: 500; transition: color .2s; }
+        nav a:hover { color: var(--text); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text); }
+        .mobile-nav { 
+            display: none; 
+            position: fixed; 
+            top: 76px; left: 0; right: 0; 
+            background: white; 
+            border-bottom: 1px solid var(--border); 
+            padding: 1.5rem; 
+            flex-direction: column; 
+            gap: 1.2rem; 
+            box-shadow: var(--shadow-lg); 
+        }
+        .mobile-nav.active { display: flex; }
+
+        .hero {
+            padding: 200px 1.5rem 100px;
+            text-align: center;
+            background: linear-gradient(to bottom, #f0f9ff, var(--bg));
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all .3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.4rem, 6.5vw, 3.4rem);
+            font-weight: 800;
+            margin: 6rem 0 3rem;
+        }
+
+        .why-us {
+            background: white;
+            padding: 6rem 2rem;
+            margin: 4rem auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        .why-item { text-align: center; }
+        .why-item i { font-size: 3.2rem; color: var(--primary); margin-bottom: 1.2rem; }
+        .why-item h3 { font-size: 1.5rem; margin-bottom: 0.8rem; }
+
+        .products, .sample-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all .4s ease;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), #1e3a8a);
+            color: white;
+            padding: 2.2rem 1.5rem;
+            text-align: center;
+        }
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0.6rem;
+            display: inline-block;
+        }
+        .card-body { padding: 2.2rem; text-align: center; }
+        .price { font-size: 3rem; font-weight: 900; color: var(--primary); margin: 1rem 0 0.5rem; }
+        .per-record { color: var(--muted); font-size: 1rem; margin-bottom: 1.8rem; }
+        .features { list-style: none; text-align: left; margin: 1.5rem 0; }
+        .features li { 
+            padding-left: 2rem; 
+            position: relative; 
+            margin: 1rem 0; 
+            font-size: 1.02rem;
+        }
+        .features li::before { 
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--green); 
+            position: absolute; 
+            left: 0;
+            font-size: 1.3em;
+        }
+
+        .sample-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .company { 
+            font-size: 1.35rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+            padding-bottom: 0.8rem; 
+            border-bottom: 2px solid var(--primary-light); 
+            margin-bottom: 1.2rem; 
+        }
+        .sample-row { 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 0.7rem 0; 
+            border-bottom: 1px dashed #e2e8f0; 
+            font-size: 1rem; 
+        }
+        .sample-row:last-child { border: none; }
+        .sample-label { color: var(--accent); font-weight: 600; }
+        .lead-score { 
+            background: var(--green); 
+            color: white; 
+            padding: 0.3rem 0.8rem; 
+            border-radius: 8px; 
+            font-weight: 700; 
+            font-size: 0.95rem; 
+        }
+
+        .compliance-box {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem 2.5rem;
+            margin: 6rem auto;
+            max-width: 900px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        .compliance-box h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        .compliance-box ul {
+            text-align: left;
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+        .compliance-box li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin: 0.9rem 0;
+        }
+        .compliance-box li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--green);
+            position: absolute;
+            left: 0;
+        }
+
+        #contact-cta {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 9rem 2rem 7rem;
+            margin: 8rem auto 0;
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            border-radius: 2rem;
+            box-shadow: var(--shadow-lg);
+            color: white;
+            max-width: 1200px;
+        }
+        #contact-cta::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle cx="150" cy="150" r="80" fill="rgba(255,255,255,0.07)"/><circle cx="850" cy="200" r="120" fill="rgba(255,255,255,0.05)"/><circle cx="100" cy="800" r="100" fill="rgba(255,255,255,0.06)"/></svg>') no-repeat center;
+            background-size: cover;
+            pointer-events: none;
+        }
+        #contact-cta h2 {
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        #contact-cta p {
+            font-size: 1.45rem;
+            max-width: 860px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+        .email-cta a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9rem;
+            font-size: clamp(1.4rem, 4.2vw, 2.6rem);
+            font-weight: 900;
+            color: white !important;
+            background: transparent;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            max-width: 95vw;
+            word-break: break-all;
+            hyphens: auto;
+        }
+        .email-cta a:hover {
+            opacity: 0.8;
+        }
+        .email-cta a i {
+            font-size: 1.3em;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .email-cta a:hover i {
+            transform: translateX(6px);
+        }
+
+        @media (max-width: 480px) {
+            #contact-cta {
+                padding: 6rem 1rem 5rem;
+                margin: 5rem auto 0;
+                border-radius: 1.5rem;
+            }
+            #contact-cta h2 { font-size: 2.3rem !important; }
+            #contact-cta p { 
+                font-size: 1.2rem !important;
+                margin-bottom: 2.5rem !important;
+            }
+            .email-cta a {
+                font-size: 1.35rem !important;
+                gap: 0.7rem !important;
+                padding: 0.4rem 0.8rem !important;
+                line-height: 1.4 !important;
+            }
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 3rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 868px) {
+            .mobile-menu-btn { display: block; }
+            nav { display: none; }
+            .hero { padding: 170px 1rem 90px; }
+            .btn { width: 100%; max-width: 380px; padding: 1.3rem; font-size: 1.2rem; margin: 1rem auto; display: block; }
+            .products, .sample-grid, .why-grid { grid-template-columns: 1fr; }
+            .logo img { height: 90px; }
+        }
+
+        @media (max-width: 480px) {
+            .logo img { height: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <!-- Just place your logo file named "logo.png" in the same folder -->
+                <img src="logo.png" alt="OutBackData Logo">
+                OutBackData
+            </a>
+            <nav>
+                <a href="#why-us">Why Us</a>
+                <a href="#products">Products</a>
+                <a href="#samples">Samples</a>
+                <a href="#contact-cta">Contact</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#why-us">Why Us</a>
+            <a href="#products">Products</a>
+            <a href="#samples">Samples</a>
+            <a href="#contact-cta">Contact</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Fresh Federal Prime Contract Leads 2025</h1>
+            <p>1,500+ real prime awards from December 2025 • >$100k • Hot sectors (Cyber, Defense, Infrastructure, AI) • Lead Score • Subcontract Potential • Instant download</p>
+            <a href="https://buy.stripe.com/28E3cvcB0dYf6tV2nFejK04" class="btn">Get Full Pack – $349</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="why-us" id="why-us">
+            <h2 class="section-title">Why Choose OutBackData?</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>100% Public & Legal</h3>
+                    <p>Sourced directly from USAspending.gov API — fully public federal data, no scraping.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-bolt-lightning"></i>
+                    <h3>Instant Delivery</h3>
+                    <p>CSV + SQLite database delivered immediately after payment.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-fire"></i>
+                    <h3>Smart Lead Scoring</h3>
+                    <p>Score 0–100 based on amount, recency, hot sector heat, state uplift — find the best opportunities fast.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-chart-trending-up"></i>
+                    <h3>Subcontract Potential</h3>
+                    <p>Estimated future opportunity size for teaming/subcontracting.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>2025 Hot Trends</h3>
+                    <p>Insights like CMMC, Zero-trust, IIJA extensions, AI ethics — know what’s driving awards.</p>
+                </div>
+                <div class="why-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Real Support</h3>
+                    <p>Need Cyber-only or a custom filter? We’ll build it fast.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="products">Choose Your Pack</h2>
+        <div class="products">
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Full Fresh Prime Leads Pack</h2>
+                    <div class="tag">COMPLETE DATASET · 1,500+ Awards · $10B+ Value</div>
+                </div>
+                <div class="card-body">
+                    <div class="price">$349</div>
+                    <div class="per-record">All qualifying December 2025 primes</div>
+                    <ul class="features">
+                        <li>Every fresh prime >$100k</li>
+                        <li>Full enrichment: sector, score, potential, trend</li>
+                        <li>Company, state, agency, description</li>
+                        <li>CSV + SQLite instant download</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/28E3cvcB0dYf6tV2nFejK04" class="btn">Buy Full Pack – $349</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Elite Strong Leads Pack</h2>
+                    <div class="tag">MOST POPULAR · 300–500 Hottest (Score 70+)</div>
+                </div>
+                <div class="card-body">
+                    <div class="price">$249</div>
+                    <div class="per-record">Ready-to-pursue high-potential primes</div>
+                    <ul class="features">
+                        <li>Only Lead Score 70–100 opportunities</li>
+                        <li>Highest subcontract potential</li>
+                        <li>Hot sectors prioritized (Cyber, Infrastructure, Defense)</li>
+                        <li>CSV + SQLite instant download</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/3cI9AT9oO4nF2dF4vNejK05" class="btn">Buy Elite Pack – $249</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Custom Pack</h2>
+                    <div class="tag">Built for You</div>
+                </div>
+                <div class="card-body">
+                    <div class="price">From $499</div>
+                    <ul class="features">
+                        <li>Cybersecurity only, Defense/Aerospace, specific states, higher $ threshold, etc.</li>
+                        <li>Delivered in 24–48 hours</li>
+                        <li>Any filter you need</li>
+                    </ul>
+                    <a href="#contact-cta" class="btn">Get Custom Quote</a>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title" id="samples">Sample Leads (Real December 2025 Data)</h2>
+        <div class="sample-grid">
+            <div class="sample-card">
+                <div class="company">Fisher Sand & Gravel Co</div>
+                <div class="sample-row"><span class="sample-label">Award Amount</span><span>$1.495B</span></div>
+                <div class="sample-row"><span class="sample-label">Agency</span><span>DHS</span></div>
+                <div class="sample-row"><span class="sample-label">Sector</span><span>Infrastructure/Construction</span></div>
+                <div class="sample-row"><span class="sample-label">Est Subcontract Potential</span><span>$6.6B+</span></div>
+                <div class="sample-row"><span class="sample-label">Lead Score</span><span class="lead-score">93 / 100</span></div>
+            </div>
+            <div class="sample-card">
+                <div class="company">Anduril Industries, Inc.</div>
+                <div class="sample-row"><span class="sample-label">Award Amount</span><span>$363M</span></div>
+                <div class="sample-row"><span class="sample-label">Agency</span><span>DHS</span></div>
+                <div class="sample-row"><span class="sample-label">Sector</span><span>Cybersecurity/IT</span></div>
+                <div class="sample-row"><span class="sample-label">Description</span><span>Purchase of Towers</span></div>
+                <div class="sample-row"><span class="sample-label">Lead Score</span><span class="lead-score">94 / 100</span></div>
+            </div>
+            <div class="sample-card">
+                <div class="company">Sls Federal Services Llc</div>
+                <div class="sample-row"><span class="sample-label">Award Amount</span><span>$665M</span></div>
+                <div class="sample-row"><span class="sample-label">Agency</span><span>DHS</span></div>
+                <div class="sample-row"><span class="sample-label">Sector</span><span>Infrastructure/Construction</span></div>
+                <div class="sample-row"><span class="sample-label">Est Subcontract Potential</span><span>$3.6B+</span></div>
+                <div class="sample-row"><span class="sample-label">Lead Score</span><span class="lead-score">100 / 100</span></div>
+            </div>
+        </div>
+
+        <div class="compliance-box">
+            <h2>100% Legal & Public-Source</h2>
+            <ul>
+                <li>Directly from official USAspending.gov API (public federal contract data)</li>
+                <li>No private information, no emails/phones</li>
+                <li>Fully compliant with all U.S. laws and federal transparency rules</li>
+            </ul>
+        </div>
+
+        <div id="contact-cta">
+            <div style="position:relative; z-index:2;">
+                <h2>Need a Custom Federal Leads Pack?</h2>
+                <p>Cybersecurity primes only • Defense/Aerospace • Specific NAICS • Higher dollar threshold • Multi-month history — we’ll build exactly what you need in 24–48 hours.</p>
+                <div class="email-cta">
+                    <a href="mailto:salesoutbackdata@gmail.com?subject=Custom%20Federal%20Leads%20Quote&body=Hi,%0D%0A%0D%0AI%27d%20like%20a%20custom%20pack.%20Details:%0D%0A%0D%0AThanks!">
+                        <i class="fas fa-envelope"></i> salesoutbackdata@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 OutBackData – Fresh U.S. Federal Contract Intelligence. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-nav').classList.toggle('active');
+        });
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-nav').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('mobile-nav').classList.remove('active');
+            });
+        });
+
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        const scrollThreshold = 80;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('hide');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('hide') && currentScroll > scrollThreshold) {
+                header.classList.add('hide');
+            } else if (currentScroll < lastScroll && header.classList.contains('hide')) {
+                header.classList.remove('hide');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
